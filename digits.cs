@@ -1,37 +1,39 @@
-
+/* The program calculates how many numbers of 1, 2, 3 or more digits
+   are entered by the user until he/she types "end"*/
 using System;
 
 class digits
 {
     static void Main()
-     {
-	    //counters of number of digits a is for one digit, b is for 2 digits, c is for 3 digits and d is for more than 3 digits
-        int a = 0, b = 0, c = 0, d = 0;
+    {
+        int oneDigit = 0, twoDigits = 0, threeDigits = 0, moreDigits = 0;
 
-         Console.Write("Insert a number: ");
-         // read the number as string to check the word "end"
-        string e = Console.ReadLine();
+        Console.Write("Insert a number: ");
+        string end = Console.ReadLine();
+        /* string is used here to finish the program if the user write "end", 
+           but it has to become an int to read the possible numbers*/
 
-        while(e != "end")
+        while (end != "end")
         {
-            int input = Convert.ToInt32(e);
+            int input = Convert.ToInt32(end);
 
-            if(input != 0)
+            if (input != 0)
             {
-                if(input/10 == 0)
-                    a ++;  // it only has one digit
+                if (input/10 == 0)
+                    oneDigit++;  
                 else if (input/100 == 0)
-		            b ++;  // the number has 2 digits
+		            twoDigits++;  
                 else if (input/1000 == 0)
-                    c ++;  // the number has 3 digits
+                    threeDigits++;  
                  else
-                    d++;  // the number has more than 3 digits
+                    moreDigits++;  
             }
 
-            e = Console.ReadLine();
+            end = Console.ReadLine();
         }
 
-        Console.WriteLine("one: {0} two: {1} three: {2} more: {3}", a, b, c, d);
+        Console.WriteLine("one: {0} two: {1} three: {2} more: {3}", oneDigit,
+        twoDigits, threeDigits, moreDigits);
     }
 }
 
